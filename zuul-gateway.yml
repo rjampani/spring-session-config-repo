@@ -1,0 +1,21 @@
+spring:
+  session:
+    store-type: redis
+  
+  redis:
+    host: localhost
+    port: 6379
+    
+  security:
+    user:
+      name: gateway 
+      password: password
+ 
+zuul:
+  retryable: true
+  routes:
+    order-management-ms: 
+      path: /order-management/**
+      sensitive-headers:
+      - Authorization
+      - Set-Cookie
